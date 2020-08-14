@@ -17,55 +17,95 @@ const jsonData = {
   quiz: {
     quiz1: {
       question1: {
-        correctoption: 'option3',
+        correctoption: 'option2',
         options: {
-          option1: 'Java',
-          option2: 'PHP',
-          option3: 'Javascript',
-          option4: 'IOS',
+          option1: 25,
+          option2: 7,
+          option3: 6,
         },
-        question: 'React is a ____ library',
+        question: '2+5 =',
       },
       question2: {
-        correctoption: 'option4',
+        correctoption: 'option2',
         options: {
-          option1: 'XML',
-          option2: 'YML',
-          option3: 'HTML',
-          option4: 'JSX',
+          option1: 'Good',
+          option2: 'Wicked',
+          option3: 'Generous',
         },
-        question: '____ tag syntax is used in React',
+        question: "The synonym of 'evil' is",
       },
       question3: {
         correctoption: 'option1',
         options: {
-          option1: 'Single root DOM node',
-          option2: 'Double root DOM node',
-          option3: 'Multiple root DOM node',
-          option4: 'None of the above',
+          option1: 'v',
+          option2: 't',
+          option3: 'w',
         },
-        question: 'Application built with just React usually have ____',
+        question: 'The 22nd alphabet is',
       },
       question4: {
-        correctoption: 'option2',
-        options: {
-          option1: 'mutable',
-          option2: 'immutable',
-          option3: 'variable',
-          option4: 'none of the above',
-        },
-        question: 'React elements are ____',
-      },
-      question5: {
         correctoption: 'option3',
         options: {
-          option1: 'functions',
-          option2: 'array',
-          option3: 'components',
-          option4: 'json data',
+          option1: 'Smile',
+          option2: 'Fight',
+          option3: 'Sight',
+        },
+        question: "One of the five senses in human is",
+      },
+      question5: {
+        correctoption: 'option2',
+        options: {
+          option1: 38.57,
+          option2: 38.84,
+          option3: 38.94,
         },
         question:
-          'React allows to split UI into independent and reusable pieses of ____',
+        "67.42 - 28.58",
+      },
+      question6: {
+        correctoption: 'option3',
+        options: {
+          option1: 'B',
+          option2: 'E',
+          option3: 'G',
+        },
+        question: "The capital letter of ‘g’ is",
+      },
+      question7: {
+        correctoption: 'option3',
+        options: {
+          option1: 'Kill a patient',
+          option2: 'Eat a patient',
+          option3: 'Cure patient',
+        },
+        question: "Doctor’s job is to",
+      },
+      question8: {
+        correctoption: 'option1',
+        options: {
+          option1: 'Jakarta',
+          option2: 'Medan',
+          option3: 'Maluku',
+        },
+        question: "The capital city of Indonesia is",
+      },
+      question9: {
+        correctoption: 'option1',
+        options: {
+          option1: 4,
+          option2: 5,
+          option3: 6,
+        },
+        question: "How many legs does a cat have?",
+      },
+      question10: {
+        correctoption: 'option2',
+        options: {
+          option1: 1,
+          option2: 2,
+          option3: 3,
+        },
+        question: "Initially, I have five apples. My friend stole two piece, and my brother ate one. How many apples do I have now?",
       },
     },
   },
@@ -138,6 +178,7 @@ export default class Quiz extends Component {
             effect={'tada'}
             _onPress={(status) => _this._answer(status, k)}
             text={currentOptions[k]}
+            style={{textAlign:'center'}}
           />
         </View>
       );
@@ -151,20 +192,20 @@ export default class Quiz extends Component {
               flex: 1,
               flexDirection: 'column',
               justifyContent: 'space-between',
-              alignItems: 'center',
+              alignItems: 'center'
             }}
           >
             <View style={styles.oval}>
               <Text style={styles.welcome}>{this.state.question}</Text>
             </View>
-            <View>{options}</View>
+            <View style = {{paddingBottom:50,textAlign:'center'}}>{options}</View>
             <View style={{ flexDirection: 'row' }}>
               {/* <Button
           onPress={() => this.prev()}
           title="Prev"
           color="#841584"
         /> */}
-              <View style={{ margin: 15 }} />
+              <View/>
 
               <TouchableOpacity onPress={() => this.next()}>
                 <View
@@ -175,9 +216,11 @@ export default class Quiz extends Component {
                     paddingLeft: 20,
                     borderRadius: 10,
                     backgroundColor: 'green',
+                    width:100,
+                    alignItems:"center"
                   }}
                 >
-                  <Icon name='md-arrow-round-forward' size={30} color='white' />
+                  <Icon name='md-arrow-round-forward' size={40} color='white' />
                 </View>
               </TouchableOpacity>
             </View>
@@ -193,15 +236,18 @@ const styles = StyleSheet.create({
     width: (width * 90) / 100,
     borderRadius: 20,
     backgroundColor: 'green',
+    alignItems:"center"
   },
   container: {
     flex: 1,
     alignItems: 'center',
+    
   },
   welcome: {
-    fontSize: 20,
+    fontSize: 25,
     margin: 15,
     color: 'white',
+    textAlign:'center'
   },
   instructions: {
     textAlign: 'center',
