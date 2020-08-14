@@ -7,9 +7,19 @@
  */
 
 class Dialog {
-    constructor(){
-
+    constructor(character, texts, images){
+        this.character = character;
+        this.texts = texts,
+        this.images = images;
+        this.indicator = false;
     }
+
+    nextPageQuiz(){
+        this.indicator = true;
+    }
+    // nextDialog(){
+
+    // }
     
 }
 
