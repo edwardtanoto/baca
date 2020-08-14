@@ -2,7 +2,7 @@ import React from 'react';
 import { ImageBackground } from 'react-native';
 const Splash = ({ navigation }) => {
   setTimeout(() => {
-    navigation.navigate('Home');
+    navigation.navigate('PlacementTestScreen');
   }, 2000);
 
   return (
