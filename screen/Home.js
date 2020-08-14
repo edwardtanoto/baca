@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-const Splash = () => {
+import { View, Text, Button } from 'react-native';
+const Splash = ({ navigation }) => {
   return (
     <View
       style={{
@@ -11,6 +11,7 @@ const Splash = () => {
       }}
     >
       <Text>Home</Text>
+      <Button title='story' onPress={navigation.navigate('Story')} />
     </View>
   );
 };
