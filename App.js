@@ -3,12 +3,9 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import PlacementTestScreen from './screens/PlacementTestScreen.js';
 
+import TaskNavigator from './navigation/TaskNavigator';
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Mari Mulai</Text>
-    </View>
-  );
+  return <TaskNavigator />;
 }
 
 
