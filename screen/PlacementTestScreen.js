@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   View,
   Text,
+  Button,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Quiz from '../components/quiz';
@@ -19,6 +20,10 @@ export default class Playquiz extends Component {
   _onPressBack() {
     const { goBack } = this.props.navigation;
     goBack();
+  }
+  continueHomeScreen(title) {
+    const { navigate } = this.props.navigation;
+    navigate(title);
   }
   _quizFinish(score) {
     this.setState({ quizFinish: true, score: score });
@@ -64,10 +69,10 @@ export default class Playquiz extends Component {
       <View style={{ flex: 1 }}>
         <StatusBar barStyle='light-content' />
         <View style={styles.toolbar}>
-          {/* <TouchableOpacity onPress={() => this._onPressBack()}>
-            <Text style={styles.toolbarButton}>Back</Text>
-          </TouchableOpacity> */}
-          <Text style={styles.toolbarTitle}></Text>
+          <TouchableOpacity onPress={() => this._onPressBack()}>
+            {/* <Text style={styles.toolbarButton}>Back</Text> */}
+          </TouchableOpacity>
+          <Text style={styles.toolbarTitle}>Placement Test</Text>
           <Text style={styles.toolbarButton}></Text>
         </View>
 
@@ -76,6 +81,10 @@ export default class Playquiz extends Component {
             <View style={styles.circle}>
               {this._scoreMessage(this.state.score)}
             </View>
+            <Button
+              title='Continue'
+              onPress={() => this.continueHomeScreen('Home')}
+            />
           </View>
         ) : (
           <Quiz quizFinish={(score) => this._quizFinish(score)} />
@@ -116,11 +125,7 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     flexDirection: 'row',
   },
-  toolbarButton: {
-    width: 55,
-    color: '#fff',
-    textAlign: 'center',
-  },
+
   toolbarTitle: {
     color: '#fff',
     textAlign: 'center',
