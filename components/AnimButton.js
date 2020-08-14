@@ -57,12 +57,14 @@ export default class Animbutton extends Component {
             paddingLeft: 20,
             backgroundColor: this.state.status ? this.props.onColor : '#bdbdbd',
             borderRadius: 20,
+            
           }}
         >
           <Text
             style={{
               color: this.state.status ? 'white' : '#696969',
               fontWeight: 'bold',
+              textAlign:'center'
             }}
           >
             {this.props.text}

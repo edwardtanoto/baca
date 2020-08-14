@@ -108,10 +108,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#33CCCC',//#33CCCC
   },
   toolbar: {
-    backgroundColor: '#81c04d',
+    backgroundColor: '#212f3c',
     paddingTop: 30,
     paddingBottom: 10,
     flexDirection: 'row',
