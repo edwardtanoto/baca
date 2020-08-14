@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#33CCCC',//#33CCCC
+    backgroundColor: '#33CCCC', //#33CCCC
   },
   toolbar: {
     backgroundColor: '#212f3c',
