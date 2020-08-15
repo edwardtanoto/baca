@@ -7,7 +7,7 @@ import {
   Text,
   Button,
 } from 'react-native';
-import QuizFinishScreen from '../components/QuizFinishScreen';
+import StoryQuizFinishScreen from '../components/QuizFinishScreen';
 import TKQUIZStoryOne from './../components/TKQUIZStoryOne';
 const TKQUIZONE = ({ route, navigation }) => {
   const [isQuizFinished, setisQuizFinished] = useState(false);
@@ -26,7 +26,7 @@ const TKQUIZONE = ({ route, navigation }) => {
       <StatusBar barStyle='light-content' />
 
       {isQuizFinished ? (
-        <QuizFinishScreen score={score} navigation={navigation} route={route} />
+        <StoryQuizFinishScreen score={score} navigation={navigation} route={route}/>
       ) : (
         <TKQUIZStoryOne qno={initQno} navigation={navigation} />
       )}

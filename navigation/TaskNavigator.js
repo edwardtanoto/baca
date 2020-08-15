@@ -12,8 +12,7 @@ import StoryQuizFinishScreen from './../components/StoryQuizFinishScreen';
 import TKQUIZTWO from '../screen/TKQUIZTWO';
 import Elementary from './../screen/Elementary';
 import QuizFinishScreen from '../components/QuizFinishScreen';
-import ModalPage from '../components/Conclusion';
-import { TKStoryTwo } from './../screen/TKStoryTWO';
+import { TKStoryTWO } from './../screen/TKStoryTWO';
 import TKQUIZONE from '../screen/TKQUIZONE';
 import SDQUIZONE from '../screen/SDQUIZONE';
 import { SDStoryOne } from './../screen/SDStoryONE';
@@ -33,6 +32,7 @@ const SplashNavigator = createStackNavigator({
   },
   TKQUIZTWO: {
     screen: TKQUIZTWO,
+    navigationOptions: { headerShown: false },
   },
   SDQUIZONE: {
     screen: SDQUIZONE,

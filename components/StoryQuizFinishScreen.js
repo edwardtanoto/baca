@@ -16,10 +16,10 @@ const QuizFinishScreen = ({ route, navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.circle}>
-        {score >=3 ?
+        {score >=0.4 ?
         <Text style = {styles.title}>Well Done!</Text> : <Text style = {styles.title}>Oh no!</Text>
         }
-        {score >=3?
+        {score >=0.4?
         <Icon name = "md-happy" size = {Dimensions.get('screen').height > 500 ? 50: 30}/>:<Icon name = "md-sad" size = {Dimensions.get('screen').height > 500 ? 50: 30}/>
         }
         <Text style={styles.score}>{text}</Text>
