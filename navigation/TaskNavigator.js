@@ -7,7 +7,7 @@ import PlacementTestScreen from './../screen/PlacementTestScreen';
 import { TKStoryONE } from '../screen/TKStoryONE';
 import Kindergarten from './../screen/Kindergarten';
 import QuizFinishScreen from './../screen/QuizFinishScreen';
-import ModalPage from '../components/Conclusion'
+import Conclusion from '../components/Conclusion'
 import { TKStoryTwo } from './../screen/TKStoryTWO';
 
 const SplashNavigator = createStackNavigator({
@@ -31,7 +31,7 @@ const SplashNavigator = createStackNavigator({
     navigationOptions: { headerShown: false },
   },
   Conclusion:{
-    screen:ModalPage,
+    screen:Conclusion,
   }
 });
 

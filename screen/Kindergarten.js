@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   Text,
   StyleSheet,
@@ -7,11 +7,14 @@ import {
   Dimensions,
   ScrollView,
   Image,
+  Modal,
+  TouchableHighlight
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { ProgressBar, Colors } from 'react-native-paper';
 
 const Kindergarten = ({ navigation }) => {
+  const [modalVisible, setModalVisible] = useState(false);
   return (
     <ScrollView style={styles.container}>
       <Image source={require('../assets/LOGO.png')} style={styles.image} />
@@ -102,11 +105,36 @@ const Kindergarten = ({ navigation }) => {
           </TouchableOpacity>
         </View>
         <View>
-          <TouchableOpacity style = {styles.story} onPress={navigation.navigate.bind(this,'Conclusion')}>
+          <TouchableOpacity style = {styles.story} onPress={() => {setModalVisible(!modalVisible);}}>
             <View style= {styles.circle}><Icon name = 'md-quote' size={18}/></View>
             <View>
               <Text style={styles.title}>Conclusion</Text>
-              <Text>How to write an alphabet</Text>
+              <Text style={{fontStyle:'italic'}}>Everything have you learned so far</Text>
+              <View style={styles.centeredView}>
+                <Modal
+                  animationType="slide"
+                  transparent={true}
+                  visible={modalVisible}
+                  onRequestClose={() => {
+                    Alert.alert("Modal has been closed.");
+                  }}
+                >
+                  <View style={styles.centeredView}>
+                    <View style={styles.modalView}>
+                      <Image source={require('../assets/LOGO.png')} style={{width:100,height:100}}/>
+
+                      <TouchableHighlight
+                        style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
+                        onPress={() => {
+                          setModalVisible(!modalVisible);
+                        }}
+                      >
+                        <Text style={styles.textStyle}>Close</Text>
+                      </TouchableHighlight>
+                    </View>
+                  </View>
+                </Modal>
+              </View>
             </View>
           </TouchableOpacity>
         </View>
@@ -153,6 +181,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 22,
     fontWeight: 'bold',
+    color:'black'
   },
   story: {
     flexDirection: 'row',
@@ -180,5 +209,41 @@ const styles = StyleSheet.create({
     height: Dimensions.get('screen').height * 0.1,
     marginLeft: Dimensions.get('screen').width * 0.45,
   },
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5
+  },
+  openButton: {
+    backgroundColor: "#F194FF",
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center"
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center"
+  }
 });
 export default Kindergarten;

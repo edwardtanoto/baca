@@ -15,7 +15,6 @@ import { SCRIPT as script } from '../data/Script';
 
 export const TKStoryONE = ({ navigation }) => {
   const [index, setIndex] = useState(0);
-  console.log(script[index].characterImage);
   const nextStory = () => {
     if (index < script.length - 1) {
       let tempIndex = index + 1;

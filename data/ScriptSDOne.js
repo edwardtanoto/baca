@@ -13,7 +13,7 @@ export const SCRIPT_SD_ONE = [{
     characterImage : "../assets/budiSD.png",
     characterName : "Budi",
     dialog: "Yes! Nice to meet you."
-},{
+},{ 
     background : "../assets/classroom.jpg",
     characterImage : "../assets/ibuguru.png",
     characterName : "Ms. Teacher",
