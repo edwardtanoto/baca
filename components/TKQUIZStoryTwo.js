@@ -18,29 +18,29 @@ import PlacementTestScreen from '../screen/PlacementTestScreen';
 const { width, height } = Dimensions.get('window');
 const quiz = [
   {
-    correctoption: 'A',
-    options: ['G', 'A', 'H'],
-    question: 'The capital letter of ‘a’ is',
+    correctoption: 'L',
+    options: ['J', 'K', 'L'],
+    question: 'The 12th alphabet is',
   },
   {
-    correctoption: 'E',
-    options: ['G', 'A', 'E'],
-    question: 'The capital letter of ‘e’ is',
+    correctoption: 'N',
+    options: ['M', 'N', 'O'],
+    question: 'The 14th alphabet is',
+  },
+  {
+    correctoption: 'H',
+    options: ['F', 'G', 'H'],
+    question: 'The 8th alphabet is',
+  },
+  {
+    correctoption: 'Q',
+    options: ['Q', 'R', 'S'],
+    question: 'The 17th alphabet is',
   },
   {
     correctoption: 'T',
-    options: ['P', 'Q', 'T'],
-    question: 'The capital letter of ‘t’ is',
-  },
-  {
-    correctoption: 'M',
-    options: ['M', 'O', 'N'],
-    question: 'The capital letter of ‘m’ is',
-  },
-  {
-    correctoption: 'R',
-    options: ['J', 'R', 'B'],
-    question: 'The capital letter of ‘r’ is ',
+    options: ['U', 'W', 'T'],
+    question: 'The 20th alphabet is',
   },
 ];
 const TKQUIZStoryOne = ({ navigation, qno }) => {

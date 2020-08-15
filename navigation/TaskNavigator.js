@@ -6,6 +6,10 @@ import { useEffect } from 'react';
 import PlacementTestScreen from './../screen/PlacementTestScreen';
 import { TKStoryONE } from '../screen/TKStoryONE';
 import Kindergarten from './../screen/Kindergarten';
+
+import StoryQuizFinishScreen from './../components/StoryQuizFinishScreen';
+
+import TKQUIZTWO from '../screen/TKQUIZTWO';
 import Elementary from './../screen/Elementary';
 import QuizFinishScreen from '../components/QuizFinishScreen';
 import ModalPage from '../components/Conclusion';
@@ -21,11 +25,14 @@ const SplashNavigator = createStackNavigator({
   },
   Home: { screen: Home, navigationOptions: { headerShown: false } },
   TKStoryONE: { screen: TKStoryONE, navigationOptions: { headerShown: false } },
+  TKStoryTWO: { screen: TKStoryTWO, navigationOptions: { headerShown: false } },
   SDStoryOne: { screen: SDStoryOne, navigationOptions: { headerShown: false } },
-  TKStoryTwo: { screen: TKStoryTwo, navigationOptions: { headerShown: false } },
   TKQUIZONE: {
     screen: TKQUIZONE,
     navigationOptions: { headerShown: false },
+  },
+  TKQUIZTWO: {
+    screen: TKQUIZTWO,
   },
   SDQUIZONE: {
     screen: SDQUIZONE,
@@ -46,8 +53,9 @@ const SplashNavigator = createStackNavigator({
     screen: QuizFinishScreen,
     navigationOptions: { headerShown: false },
   },
-  Conclusion: {
-    screen: ModalPage,
+  StoryQuizFinishScreen:{
+    screen:StoryQuizFinishScreen,
+    navigationOptions: {headerShown:false}
   },
 });
 
