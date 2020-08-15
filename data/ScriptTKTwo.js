@@ -2,7 +2,7 @@ export const SCRIPTTKTWO = [{
     background : "../assets/classroom.jpg",
     characterImage : "../assets/ibu.png",
     characterName: "Mom",
-    dialog: "Welcome home Budi, what have you learned at school?"
+    dialog: "Hi Budi. Finally you have done with your school today. What have you learned at school?"
 },{
     background : "../assets/classroom.jpg",
     characterImage : "../assets/ibu.png",
