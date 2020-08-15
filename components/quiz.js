@@ -8,6 +8,7 @@ import {
   Dimensions,
   ScrollView,
   TouchableOpacity,
+  ImageBackground,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Animbutton from './AnimButton';
@@ -152,6 +153,7 @@ export default class Quiz extends Component {
     }
   }
   _answer(status, ans) {
+    
     if (status == true) {
       const count = this.state.countCheck + 1;
       this.setState({ countCheck: count });
@@ -175,58 +177,52 @@ export default class Quiz extends Component {
           <Animbutton
             countCheck={_this.state.countCheck}
             onColor={'green'}
-            effect={'tada'}
+            effect={'rubberBand'}
             _onPress={(status) => _this._answer(status, k)}
             text={currentOptions[k]}
-            style={{textAlign:'center'}}
           />
         </View>
       );
     });
 
     return (
-      <ScrollView style={{ backgroundColor: '#F5FCFF', paddingTop: 10 }}>
         <View style={styles.container}>
-          <View
-            style={{
-              flex: 1,
-              flexDirection: 'column',
-              justifyContent: 'space-between',
-              alignItems: 'center'
-            }}
-          >
-            <View style={styles.oval}>
-              <Text style={styles.welcome}>{this.state.question}</Text>
-            </View>
-            <View style = {{paddingBottom:50,textAlign:'center'}}>{options}</View>
-            <View style={{ flexDirection: 'row' }}>
-              {/* <Button
-          onPress={() => this.prev()}
-          title="Prev"
-          color="#841584"
-        /> */}
-              <View/>
+          <ImageBackground source={require("../assets/placement-test-02.jpg")} style = {styles.image}>
+            <View
+              style={{
+                flex: 1,
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                paddingTop:'60%'
+              }}
+            >
+              <View style={styles.oval}>
+                <Text style={styles.welcome}>{this.state.question}</Text>
+              </View>
+              <View style = {{paddingBottom:'10%',textAlign:'center'}}>{options}</View>
+              <View style={{ flexDirection: 'row' ,paddingBottom:10}}>
+          
 
-              <TouchableOpacity onPress={() => this.next()}>
-                <View
-                  style={{
-                    paddingTop: 5,
-                    paddingBottom: 5,
-                    paddingRight: 20,
-                    paddingLeft: 20,
-                    borderRadius: 10,
-                    backgroundColor: 'green',
-                    width:100,
-                    alignItems:"center"
-                  }}
-                >
-                  <Icon name='md-arrow-round-forward' size={40} color='white' />
-                </View>
-              </TouchableOpacity>
+                <TouchableOpacity onPress={() => this.next()}>
+                  <View
+                    style={{
+                      paddingTop: 5,
+                      paddingBottom: 5,
+                      paddingRight: 20,
+                      paddingLeft: 20,
+                      borderRadius: 10,
+                      backgroundColor: 'green',
+                      alignItems:"center"
+                    }}
+                  >
+                    <Icon name='md-arrow-round-forward' size={20} color='white' />
+                  </View>
+                </TouchableOpacity>
+              </View>
             </View>
-          </View>
+          </ImageBackground>
         </View>
-      </ScrollView>
     );
   }
 }
@@ -241,11 +237,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
+    backgroundColor: '#F5FCFF',
     
   },
   welcome: {
-    fontSize: 25,
-    margin: 15,
+    fontSize: 20,
+    margin: 10,
     color: 'white',
     textAlign:'center'
   },
@@ -254,4 +251,9 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+  image:{
+    flex: 1,
+    resizeMode: "stretch",
+    width : Dimensions.get('screen').width
+  }
 });
