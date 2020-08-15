@@ -6,7 +6,9 @@ import {
   View,
   Text,
   Button,
+  Dimensions,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons'
 
 const QuizFinishScreen = ({ route, navigation }) => {
   const score = navigation.getParam('ResultScore');
@@ -14,8 +16,9 @@ const QuizFinishScreen = ({ route, navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.circle}>
-        <Text>{text}</Text>
-        <Text>{score}</Text>
+        <Text style = {styles.title}>Congratulations!</Text>
+        <Icon name = "md-school" size = {Dimensions.get('screen').height > 500 ? 50: 30}/>
+        <Text style={styles.score}>You are eligible to start from level : {text}</Text>
       </View>
       <Button
         title='Continue'
@@ -30,9 +33,14 @@ const scoreCircleSize = 300;
 
 const styles = StyleSheet.create({
   score: {
-    color: 'white',
+    color: 'black',
     fontSize: 20,
     fontStyle: 'italic',
+    textAlign:'center'
+  },
+  title:{
+    fontSize:28,
+    fontWeight:'bold'
   },
   circle: {
     justifyContent: 'center',
@@ -40,7 +48,8 @@ const styles = StyleSheet.create({
     width: scoreCircleSize,
     height: scoreCircleSize,
     borderRadius: scoreCircleSize / 2,
-    backgroundColor: 'green',
+    backgroundColor: 'gold',
+    marginBottom:Dimensions.get('screen').height * 0.05
   },
   innerContainer: {
     flex: 1,
