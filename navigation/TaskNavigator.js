@@ -4,14 +4,17 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { useEffect } from 'react';
 import PlacementTestScreen from './../screen/PlacementTestScreen';
+import { Story } from '../screen/Story';
 
 const SplashNavigator = createStackNavigator({
-  SplashScreen: { screen: Splash, navigationOptions: { headerShown: false } },
-  PlacementTestScreen: {
-    screen: PlacementTestScreen,
-    navigationOptions: { headerShown: false },
-  },
+  // SplashScreen: { screen: Splash, navigationOptions: { headerShown: false } },
+  // PlacementTestScreen: {
+  //   screen: PlacementTestScreen,
+  //   navigationOptions: { headerShown: false },
+  // },
   Home: { screen: Home, navigationOptions: { headerShown: false } },
+  Story : {screen : Story, navigationOptions: { headerShown: false } },
+  
 });
 
 export default createAppContainer(SplashNavigator);
