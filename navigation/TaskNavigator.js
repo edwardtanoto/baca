@@ -6,10 +6,10 @@ import { useEffect } from 'react';
 import PlacementTestScreen from './../screen/PlacementTestScreen';
 import { TKStoryONE } from '../screen/TKStoryONE';
 import Kindergarten from './../screen/Kindergarten';
-import QuizFinishScreen from './../screen/QuizFinishScreen';
-import ModalPage from '../components/Conclusion'
+import QuizFinishScreen from '../components/QuizFinishScreen';
+import ModalPage from '../components/Conclusion';
 import { TKStoryTwo } from './../screen/TKStoryTWO';
-
+import TKQUIZONE from '../screen/TKQUIZONE';
 const SplashNavigator = createStackNavigator({
   SplashScreen: { screen: Splash, navigationOptions: { headerShown: false } },
   PlacementTestScreen: {
@@ -19,6 +19,10 @@ const SplashNavigator = createStackNavigator({
   Home: { screen: Home, navigationOptions: { headerShown: false } },
   TKStoryONE: { screen: TKStoryONE, navigationOptions: { headerShown: false } },
   TKStoryTwo: { screen: TKStoryTwo, navigationOptions: { headerShown: false } },
+  TKQUIZONE: {
+    screen: TKQUIZONE,
+    navigationOptions: { headerShown: false },
+  },
 
   Kindergarten: {
     screen: Kindergarten,
@@ -30,9 +34,9 @@ const SplashNavigator = createStackNavigator({
     screen: QuizFinishScreen,
     navigationOptions: { headerShown: false },
   },
-  Conclusion:{
-    screen:ModalPage,
-  }
+  Conclusion: {
+    screen: ModalPage,
+  },
 });
 
 export default createAppContainer(SplashNavigator);

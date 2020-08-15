@@ -57,7 +57,12 @@ const Kindergarten = ({ navigation }) => {
           </TouchableOpacity>
         </View>
         <View>
-          <TouchableOpacity style={styles.story}>
+          <TouchableOpacity
+            style={styles.story}
+            onPress={() => {
+              navigation.navigate('TKQUIZONE');
+            }}
+          >
             <View style={styles.circle}>
               <Icon name='md-checkbox-outline' size={18} />
             </View>
@@ -102,8 +107,13 @@ const Kindergarten = ({ navigation }) => {
           </TouchableOpacity>
         </View>
         <View>
-          <TouchableOpacity style = {styles.story} onPress={navigation.navigate.bind(this,'Conclusion')}>
-            <View style= {styles.circle}><Icon name = 'md-quote' size={18}/></View>
+          <TouchableOpacity
+            style={styles.story}
+            onPress={navigation.navigate.bind(this, 'Conclusion')}
+          >
+            <View style={styles.circle}>
+              <Icon name='md-quote' size={18} />
+            </View>
             <View>
               <Text style={styles.title}>Conclusion</Text>
               <Text>How to write an alphabet</Text>

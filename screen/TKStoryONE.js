@@ -15,16 +15,14 @@ import { SCRIPT as script } from '../data/Script';
 
 export const TKStoryONE = ({ navigation }) => {
   const [index, setIndex] = useState(0);
-  console.log(script[index].characterImage);
   const nextStory = () => {
     if (index < script.length - 1) {
       let tempIndex = index + 1;
       setIndex(tempIndex);
     } else {
-      navigation.navigate('PlacementTestScreen');
+      navigation.navigate('TKQUIZONE');
     }
   };
-  // console.log(script[index].characterName);
   return (
     <View
       style={{

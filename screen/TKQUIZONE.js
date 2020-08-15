@@ -7,9 +7,9 @@ import {
   Text,
   Button,
 } from 'react-native';
-import Quiz from '../components/Quiz';
-import QuizFinishScreen from './QuizFinishScreen';
-const PlacementTestScreen = ({ route, navigation }) => {
+import QuizFinishScreen from '../components/QuizFinishScreen';
+import TKQUIZStoryOne from './../components/TKQUIZStoryOne';
+const TKQUIZONE = ({ route, navigation }) => {
   const [isQuizFinished, setisQuizFinished] = useState(false);
   const [initQno, setinitqno] = useState(0);
   // useEffect(() => {
@@ -28,10 +28,10 @@ const PlacementTestScreen = ({ route, navigation }) => {
       {isQuizFinished ? (
         <QuizFinishScreen score={score} navigation={navigation} route={route} />
       ) : (
-        <Quiz qno={initQno} navigation={navigation} />
+        <TKQUIZStoryOne qno={initQno} navigation={navigation} />
       )}
     </View>
   );
 };
 
-export default PlacementTestScreen;
+export default TKQUIZONE;
