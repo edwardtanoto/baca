@@ -13,7 +13,7 @@ import {
 
 import { SCRIPTTKTWO as script } from '../data/ScriptTKTwo';
 
-export const Story = () => {
+export const TKStoryTwo = () => {
   const [index, setIndex] = useState(0);
   const nextStory = () => {
     if (index < script.length - 1) {

@@ -27,14 +27,12 @@ export const TKStoryONE = () => {
   };
   // console.log(script[index].characterName);
   return (
-    <TouchableOpacity
+    <View
       style={{
         backgroundColor: 'white',
         flex: 1,
         justifyContent: 'space-evenly',
       }}
-      onPress={nextStory}
-      activeOpacity={0.1}
      
     >
       <ImageBackground
@@ -42,10 +40,18 @@ export const TKStoryONE = () => {
         style={styles.image}
       >
         <View>
-          <Image
-            source={script[index].characterImage}
-            style={styles.character}
-          ></Image>
+         { script[index].characterName == "Ms. Teacher" ?  
+         <Image
+            source={require('../assets/ibuguru.png')}
+            style={styles.character} 
+          ></Image> : <Text></Text>
+          }
+           { script[index].characterName == "Budi" ?  
+         <Image
+            source={require('../assets/budiTK.png')}
+            style={styles.character} 
+          ></Image> :  <Text></Text>
+          }
         </View>
         <TouchableOpacity style={styles.dialog} onPress={nextStory}>
           <View>
@@ -58,7 +64,7 @@ export const TKStoryONE = () => {
           </View> */}
         </TouchableOpacity>
       </ImageBackground>
-    </TouchableOpacity>
+    </View>
   );
 };
 
@@ -76,7 +82,8 @@ const styles = StyleSheet.create({
   },
   character: {
     height: '80%',
-    width: 150,
+    width: '50%',
+    marginLeft : 100
   },
   Tagline: {
     color: 'black',

@@ -11,16 +11,16 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 
-import { SCRIPT_SD_ONE as script } from '../data/ScriptSDOne';
+import { SCRIPT_SD_TWO as script } from '../data/ScriptSDTwo';
 
-export const SDStoryOne = () => {
+export const SDStoryTwo= () => {
   const [index, setIndex] = useState(0);
   const nextStory = () => {
     if (index < script.length - 1) {
       let tempIndex = index + 1;
       setIndex(tempIndex);
     } else {
-      //PINDAH KE QUIZ SD
+        //PINDAH KE HOME
         setIndex(0)
     }
   };
