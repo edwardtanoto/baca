@@ -13,15 +13,14 @@ import {
 
 import { SCRIPT_SD_ONE as script } from '../data/ScriptSDOne';
 
-export const SDStoryOne = () => {
+export const SDStoryOne = ({ navigation }) => {
   const [index, setIndex] = useState(0);
   const nextStory = () => {
     if (index < script.length - 1) {
       let tempIndex = index + 1;
       setIndex(tempIndex);
     } else {
-      //PINDAH KE QUIZ SD
-        setIndex(0)
+      navigation.navigate('SDQUIZONE');
     }
   };
   // console.log(script[index].characterName);
@@ -38,24 +37,30 @@ export const SDStoryOne = () => {
         style={styles.image}
       >
         <View>
-        { script[index].characterName == "Ms. Teacher" ?  
-         <Image
-            source={require('../assets/ibuguru.png')}
-            style={styles.character} 
-          ></Image> : <Text></Text>
-          }
-           { script[index].characterName == "Budi" ?  
-         <Image
-            source={require('../assets/budiSD.png')}
-            style={styles.character} 
-          ></Image> :  <Text></Text>
-          }
-          { script[index].characterName == "Alyssa" ?  
-         <Image
-            source={require('../assets/ALYSSAsd.png')}
-            style={styles.character} 
-          ></Image> :  <Text></Text>
-          }
+          {script[index].characterName == 'Ms. Teacher' ? (
+            <Image
+              source={require('../assets/ibuguru.png')}
+              style={styles.character}
+            ></Image>
+          ) : (
+            <Text></Text>
+          )}
+          {script[index].characterName == 'Budi' ? (
+            <Image
+              source={require('../assets/budiSD.png')}
+              style={styles.character}
+            ></Image>
+          ) : (
+            <Text></Text>
+          )}
+          {script[index].characterName == 'Alyssa' ? (
+            <Image
+              source={require('../assets/ALYSSAsd.png')}
+              style={styles.character}
+            ></Image>
+          ) : (
+            <Text></Text>
+          )}
         </View>
         <TouchableOpacity style={styles.dialog} onPress={nextStory}>
           <View>

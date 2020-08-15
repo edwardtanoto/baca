@@ -20,7 +20,7 @@ export const TKStoryTwo = () => {
       let tempIndex = index + 1;
       setIndex(tempIndex);
     } else {
-        setIndex(0)
+      setIndex(0);
     }
   };
   // console.log(script[index].characterName);
