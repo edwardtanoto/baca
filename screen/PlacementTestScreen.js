@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import {
   StyleSheet,
   StatusBar,
@@ -9,126 +9,23 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Quiz from '../components/quiz';
-export default class Playquiz extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      quizFinish: false,
-      score: 0,
-    };
-  }
-  _onPressBack() {
-    const { goBack } = this.props.navigation;
-    goBack();
-  }
-  continueHomeScreen(title) {
-    const { navigate } = this.props.navigation;
-    navigate(title);
-  }
-  _quizFinish(score) {
-    this.setState({ quizFinish: true, score: score });
-  }
-  _scoreMessage(score) {
-    if (score <= 30) {
-      return (
-        <View style={styles.innerContainer}>
-          <View style={{ flexDirection: 'row' }}>
-            <Icon name='trophy' size={30} color='white' />
-          </View>
-          <Text style={styles.score}>You need to work hard</Text>
-          <Text style={styles.score}>You scored {score}%</Text>
-        </View>
-      );
-    } else if (score > 30 && score < 60) {
-      return (
-        <View style={styles.innerContainer}>
-          <View style={{ flexDirection: 'row' }}>
-            <Icon name='trophy' size={30} color='white' />
-            <Icon name='trophy' size={30} color='white' />
-          </View>
-          <Text style={styles.score}>You are good</Text>
-          <Text style={styles.score}>Congrats you scored {score}% </Text>
-        </View>
-      );
-    } else if (score >= 60) {
-      return (
-        <View style={styles.innerContainer}>
-          <View style={{ flexDirection: 'row' }}>
-            <Icon name='trophy' size={30} color='white' />
-            <Icon name='trophy' size={30} color='white' />
-            <Icon name='trophy' size={30} color='white' />
-          </View>
-          <Text style={styles.score}>You are the master</Text>
-          <Text style={styles.score}>Congrats you scored {score}% </Text>
-        </View>
-      );
-    }
-  }
-  render() {
-    return (
-      <View style={{ flex: 1 }}>
-        <StatusBar barStyle='light-content' />
-        {/* <View style={styles.toolbar}>
-          <TouchableOpacity onPress={() => this._onPressBack()}>
-          </TouchableOpacity>
-          <Text style={styles.toolbarTitle}>Placement Test</Text>
-          <Text style={styles.toolbarButton}></Text>
-        </View> */}
+import QuizFinishScreen from './QuizFinishScreen';
+const PlacementTestScreen = ({ navigation }) => {
+  const finished = navigation.state.params('quizFinish');
+  const [isQuizFinished, setisQuizFinished] = useState(false);
+  useEffect(() => {
+    setisQuizFinished();
+  }, []);
 
-        {this.state.quizFinish ? (
-          <View style={styles.container}>
-            <View style={styles.circle}>
-              {this._scoreMessage(this.state.score)}
-            </View>
-            <Button
-              title='Continue'
-              onPress={() => this.continueHomeScreen('Home')}
-            />
-          </View>
-        ) : (
-          <Quiz quizFinish={(score) => this._quizFinish(score)} />
-        )}
-      </View>
-    );
-  }
-}
-const scoreCircleSize = 300;
-const styles = StyleSheet.create({
-  score: {
-    color: 'white',
-    fontSize: 20,
-    fontStyle: 'italic',
-  },
-  circle: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: scoreCircleSize,
-    height: scoreCircleSize,
-    borderRadius: scoreCircleSize / 2,
-    backgroundColor: 'green',
-  },
-  innerContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#33CCCC', //#33CCCC
-  },
-  toolbar: {
-    backgroundColor: '#212f3c',
-    paddingTop: 30,
-    paddingBottom: 10,
-    flexDirection: 'row',
-  },
+  const score = navigation.state.params('resultScore');
 
-  toolbarTitle: {
-    color: '#fff',
-    textAlign: 'center',
-    fontWeight: 'bold',
-    flex: 1,
-  },
-});
+  return (
+    <View style={{ flex: 1 }}>
+      <StatusBar barStyle='light-content' />
+
+      {isQuizFinished ? <QuizFinishScreen /> : <Quiz />}
+    </View>
+  );
+};
+
+export default PlacementTestScreen;
