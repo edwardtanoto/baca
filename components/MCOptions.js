@@ -1,46 +1,30 @@
-import React, { useState } from 'react';
-import { Text, TouchableWithoutFeedback } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, TouchableOpacity } from 'react-native';
 import RadioForm, {
   RadioButton,
   RadioButtonInput,
   RadioButtonLabel,
 } from 'react-native-simple-radio-button';
 
-const MCOptions = () => {
-  var radio_props = [
-    { label: 'param1', value: 0 },
-    { label: 'param2', value: 1 },
-  ];
+const MCOptions = ({ options, getSelectedValue, next }) => {
+  var radio_props = options.map((option) => {
+    return { label: option, value: option };
+  });
+  // var radio_props = [{ label: text, value: text }];
+  const [selectedValue, setselectedValue] = useState(null);
+  useEffect(() => {
+    getSelectedValue(selectedValue);
+  }, [selectedValue]);
   return (
-    <RadioForm formHorizontal={true} animation={true}>
-      {/* To create radio buttons, loop through your array of options */}
-      {radio_props.map((obj, i) => (
-        <RadioButton labelHorizontal={true} key={i}>
-          {/*  You can set RadioButtonLabel before RadioButtonInput */}
-          <RadioButtonInput
-            obj={obj}
-            index={i}
-            isSelected={this.state.value3Index === i}
-            onPress={onPress}
-            borderWidth={1}
-            buttonInnerColor={'#e74c3c'}
-            buttonOuterColor={this.state.value3Index === i ? '#2196f3' : '#000'}
-            buttonSize={40}
-            buttonOuterSize={80}
-            buttonStyle={{}}
-            buttonWrapStyle={{ marginLeft: 10 }}
-          />
-          <RadioButtonLabel
-            obj={obj}
-            index={i}
-            labelHorizontal={true}
-            onPress={onPress}
-            labelStyle={{ fontSize: 20, color: '#2ecc71' }}
-            labelWrapStyle={{}}
-          />
-        </RadioButton>
-      ))}
-    </RadioForm>
+    <View>
+      <RadioForm
+        radio_props={radio_props}
+        onPress={(value) => {
+          setselectedValue(value);
+          next();
+        }}
+      />
+    </View>
   );
 };
 

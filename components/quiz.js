@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   AppRegistry,
   StyleSheet,
@@ -13,160 +13,80 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 import MCOptions from './MCOptions';
 const { width, height } = Dimensions.get('window');
-let arrnew = [];
-const jsonData = {
-  quiz: {
-    quiz1: {
-      question1: {
-        correctoption: 'option2',
-        options: {
-          option1: 25,
-          option2: 7,
-          option3: 6,
-        },
-        question: '2+5 =',
-      },
-      question2: {
-        correctoption: 'option2',
-        options: {
-          option1: 'Good',
-          option2: 'Wicked',
-          option3: 'Generous',
-        },
-        question: "The synonym of 'evil' is",
-      },
-      question3: {
-        correctoption: 'option1',
-        options: {
-          option1: 'v',
-          option2: 't',
-          option3: 'w',
-        },
-        question: 'The 22nd alphabet is',
-      },
-      question4: {
-        correctoption: 'option3',
-        options: {
-          option1: 'Smile',
-          option2: 'Fight',
-          option3: 'Sight',
-        },
-        question: 'One of the five senses in human is',
-      },
-      question5: {
-        correctoption: 'option2',
-        options: {
-          option1: 38.57,
-          option2: 38.84,
-          option3: 38.94,
-        },
-        question: '67.42 - 28.58',
-      },
-      question6: {
-        correctoption: 'option3',
-        options: {
-          option1: 'B',
-          option2: 'E',
-          option3: 'G',
-        },
-        question: 'The capital letter of ‘g’ is',
-      },
-      question7: {
-        correctoption: 'option3',
-        options: {
-          option1: 'Kill a patient',
-          option2: 'Eat a patient',
-          option3: 'Cure patient',
-        },
-        question: 'Doctor’s job is to',
-      },
-      question8: {
-        correctoption: 'option1',
-        options: {
-          option1: 'Jakarta',
-          option2: 'Medan',
-          option3: 'Maluku',
-        },
-        question: 'The capital city of Indonesia is',
-      },
-      question9: {
-        correctoption: 'option1',
-        options: {
-          option1: 4,
-          option2: 5,
-          option3: 6,
-        },
-        question: 'How many legs does a cat have?',
-      },
-      question10: {
-        correctoption: 'option2',
-        options: {
-          option1: 1,
-          option2: 2,
-          option3: 3,
-        },
-        question:
-          'Initially, I have five apples. My friend stole two piece, and my brother ate one. How many apples do I have now?',
-      },
-    },
+const quiz = [
+  {
+    correctoption: 7,
+    options: [25, 7, 6],
+    question: '2+5 =',
   },
-};
+  {
+    correctoption: 'Wicked',
+    options: ['Good', 'Wicked', 'Generous'],
+    question: "The synonym of 'evil' is",
+  },
+  {
+    correctoption: 'v',
+    options: ['v', 't', 'w'],
+    question: 'The 22nd alphabet is',
+  },
+];
+const Quiz = ({ navigation, qno }) => {
+  const [score, setscore] = useState(1);
+  const [question, setQuestion] = useState(quiz[qno].question);
+  const [options, setOptions] = useState(quiz[qno].options);
+  const [correctOption, setCorrectOption] = useState(quiz[qno].correctoption);
+  const [questionNo, setquestionNo] = useState(qno);
+  const [answer, setAnswer] = useState([]);
 
-const quiz = ({ navigation }) => {
-  const [qno, setqno] = useState(0);
-  const [score, setscore] = useState(0);
-  const [question, setQuestion] = useState(arrnew[qno].question);
-  const [options, setOptions] = useState(arrnew[qno].options);
-  const [correctOption, setCorrectOption] = useState(arrnew[qno].correctoption);
-  const jdata = jsonData.quiz.quiz1;
-  arrnew = Object.keys(jdata).map((k) => {
-    return jdata[k];
-  });
-
+  const getSelectedValue = (selectedValue) => {
+    if (selectedValue != null) {
+      setAnswer(answer.concat(selectedValue));
+    }
+  };
   const next = () => {
-    if (qno < arrnew.length - 1) {
-      setqno(qno++);
-      setQuestion(arrnew[qno].question);
-      setOptions(arrnew[qno].options);
-      setCorrectOption(arrnew[qno].correctoption);
+    if (questionNo < quiz.length - 1) {
+      let tempqno = questionNo + 1;
+      setquestionNo(tempqno);
+      setQuestion(quiz[tempqno].question);
+      setOptions(quiz[tempqno].options);
+      setCorrectOption(quiz[tempqno].correctoption);
     } else {
-      if (score <= 30) {
-        navigation.navigate('PlacementTestScreen', {
-          resultScore: score,
-          quizFinish: true,
+      if (score == 1 || score == 0) {
+        navigation.navigate({
+          routeName: 'QuizFinishScreen',
+          params: { ResultScore: score, Text: 'TK' },
         });
-      } else if (score > 30 && score < 60) {
-        navigation.navigate('PlacementTestScreen', {
-          resultScore: score,
-          quizFinish: true,
+      } else if (score > 1 && score <= 2) {
+        navigation.navigate({
+          routeName: 'QuizFinishScreen',
+          params: { ResultScore: score, Text: 'SD' },
         });
-      } else if (score >= 60) {
-        navigation.navigate('PlacementTestScreen', {
-          resultScore: score,
-          quizFinish: true,
+      } else if (score == 3) {
+        navigation.navigate({
+          routeName: 'QuizFinishScreen',
+          params: { ResultScore: score, Text: 'SMP' },
         });
       }
     }
   };
-  const _answer = () => {
-    if (ans == correctoption) {
-      setscore(score++);
-    } else {
-      setscore(score--);
-    }
-  };
+
+  useEffect(() => {
+    console.log(answer);
+  }, [answer]);
+
+  useEffect(() => {
+    answer.map((ans, index) => {
+      if (ans == quiz[index].correctoption) {
+        let tempScore = score + 1;
+        setscore(tempScore);
+      } else {
+        let tempScore = score;
+        setscore(tempScore);
+      }
+    });
+  }, [answer]);
 
   const currentOptions = options;
-  const renderedOptions = Object.keys(currentOptions).map((k) => {
-    return (
-      <View key={k} style={{ margin: 10 }}>
-        <MCOptions
-        //   _onPress={_answer}
-        //   text={currentOptions[k]}
-        />
-      </View>
-    );
-  });
 
   return (
     <View style={styles.container}>
@@ -186,25 +106,12 @@ const quiz = ({ navigation }) => {
           <View style={styles.oval}>
             <Text style={styles.welcome}>{question}</Text>
           </View>
-          <View style={{ paddingBottom: '10%', textAlign: 'center' }}>
-            {renderedOptions}
-          </View>
-          <View style={{ flexDirection: 'row', paddingBottom: 10 }}>
-            <TouchableOpacity onPress={next}>
-              <View
-                style={{
-                  paddingTop: 5,
-                  paddingBottom: 5,
-                  paddingRight: 20,
-                  paddingLeft: 20,
-                  borderRadius: 10,
-                  backgroundColor: 'green',
-                  alignItems: 'center',
-                }}
-              >
-                <Icon name='md-arrow-round-forward' size={20} color='white' />
-              </View>
-            </TouchableOpacity>
+          <View style={{ paddingBottom: '70%', textAlign: 'center' }}>
+            <MCOptions
+              options={currentOptions}
+              getSelectedValue={getSelectedValue}
+              next={next}
+            />
           </View>
         </View>
       </ImageBackground>
@@ -242,4 +149,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default quiz;
+export default Quiz;

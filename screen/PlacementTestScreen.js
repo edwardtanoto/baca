@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   StyleSheet,
   StatusBar,
@@ -7,23 +7,29 @@ import {
   Text,
   Button,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import Quiz from '../components/quiz';
+import Quiz from '../components/Quiz';
 import QuizFinishScreen from './QuizFinishScreen';
-const PlacementTestScreen = ({ navigation }) => {
-  const finished = navigation.state.params('quizFinish');
+const PlacementTestScreen = ({ route, navigation }) => {
   const [isQuizFinished, setisQuizFinished] = useState(false);
-  useEffect(() => {
-    setisQuizFinished();
-  }, []);
+  const [initQno, setinitqno] = useState(0);
+  // useEffect(() => {
+  //   if (route.params('quizFinish')) {
+  //     const finished = route.params('quizFinish');
+  //     const score = route.params('resultScore');
 
-  const score = navigation.state.params('resultScore');
+  //     setisQuizFinished(finished);
+  //   }
+  // }, [route.params('quizFinish')]);
 
   return (
     <View style={{ flex: 1 }}>
       <StatusBar barStyle='light-content' />
 
-      {isQuizFinished ? <QuizFinishScreen /> : <Quiz />}
+      {isQuizFinished ? (
+        <QuizFinishScreen score={score} navigation={navigation} route={route} />
+      ) : (
+        <Quiz qno={initQno} navigation={navigation} />
+      )}
     </View>
   );
 };

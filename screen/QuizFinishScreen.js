@@ -8,15 +8,21 @@ import {
   Button,
 } from 'react-native';
 
-const QuizFinishScreen = ({ navigation }) => {
-  const scoreResult = navigation.state.params.score;
-  const continueHomeScreen = () => {
-    navigation.navigate('home');
-  };
+const QuizFinishScreen = ({ route, navigation }) => {
+  const score = navigation.getParam('ResultScore');
+  const text = navigation.getParam('Text');
   return (
     <View style={styles.container}>
-      <View style={styles.circle}>{scoreResult}</View>
-      <Button title='Continue' onPress={continueHomeScreen} />
+      <View style={styles.circle}>
+        <Text>{text}</Text>
+        <Text>{score}</Text>
+      </View>
+      <Button
+        title='Continue'
+        onPress={() => {
+          navigation.navigate('Home');
+        }}
+      />
     </View>
   );
 };
