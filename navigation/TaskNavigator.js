@@ -11,7 +11,7 @@ const SplashNavigator = createStackNavigator({
     screen: PlacementTestScreen,
     navigationOptions: { headerShown: false },
   },
-  Home: { screen: Home, navigationOptions: { headerShown: false } },
+  Home: { screen: Home },
 });
 
 export default createAppContainer(SplashNavigator);
