@@ -52,7 +52,7 @@ const Kindergarten = ({ navigation }) => {
             <View>
               <Text style={styles.title}>Story 1</Text>
               <ProgressBar
-                progress={1}
+                progress={0}
                 style={styles.progress}
                 color={Colors.green800}
               />
@@ -72,7 +72,7 @@ const Kindergarten = ({ navigation }) => {
             <View>
               <Text style={styles.title}>Quiz 1</Text>
               <ProgressBar
-                progress={0.9}
+                progress={0}
                 style={styles.progress}
                 color={Colors.green800}
               />
@@ -87,7 +87,7 @@ const Kindergarten = ({ navigation }) => {
             <View>
               <Text style={styles.title}>Story 2</Text>
               <ProgressBar
-                progress={0.5}
+                progress={0}
                 style={styles.progress}
                 color={Colors.green800}
               />
@@ -102,7 +102,7 @@ const Kindergarten = ({ navigation }) => {
             <View>
               <Text style={styles.title}>Quiz 2</Text>
               <ProgressBar
-                progress={0.1}
+                progress={0}
                 style={styles.progress}
                 color={Colors.green800}
               />
