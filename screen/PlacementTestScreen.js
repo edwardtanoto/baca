@@ -8,7 +8,7 @@ import {
   Button,
 } from 'react-native';
 import Quiz from '../components/quiz';
-import QuizFinishScreen from './QuizFinishScreen';
+import QuizFinishScreen from '../components/QuizFinishScreen';
 const PlacementTestScreen = ({ route, navigation }) => {
   const [isQuizFinished, setisQuizFinished] = useState(false);
   const [initQno, setinitqno] = useState(0);

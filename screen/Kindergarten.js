@@ -60,7 +60,12 @@ const Kindergarten = ({ navigation }) => {
           </TouchableOpacity>
         </View>
         <View>
-          <TouchableOpacity style={styles.story}>
+          <TouchableOpacity
+            style={styles.story}
+            onPress={() => {
+              navigation.navigate('TKQUIZONE');
+            }}
+          >
             <View style={styles.circle}>
               <Icon name='md-checkbox-outline' size={18} />
             </View>

@@ -20,10 +20,9 @@ export const TKStoryONE = ({ navigation }) => {
       let tempIndex = index + 1;
       setIndex(tempIndex);
     } else {
-      navigation.navigate('PlacementTestScreen');
+      navigation.navigate('TKQUIZONE');
     }
   };
-  // console.log(script[index].characterName);
   return (
     <View
       style={{
