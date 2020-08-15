@@ -26,6 +26,16 @@ const Home = ({ navigation }) => {
   }
 
   return (
+    <View
+      style={{
+        flex: 1,
+        padding: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      <Text>Home</Text>
+      <Button title='story' onPress={navigation.navigate.bind(this, 'TKStoryONE')} />
     <View style = {styles.container}>
       <Image source = {require('../assets/LOGO.png')} style={styles.image}/>
       <View style = {styles.buttonContainer}>
@@ -55,6 +65,7 @@ const Home = ({ navigation }) => {
         <Text style={styles.spacer}>⡇</Text>
         <Step text='Work' filled = 'N'/>
       </View>
+    </View>
     </View>
   );
 }
