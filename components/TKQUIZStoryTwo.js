@@ -64,20 +64,20 @@ const TKQUIZStoryOne = ({ navigation, qno }) => {
       setOptions(quiz[tempqno].options);
       setCorrectOption(quiz[tempqno].correctoption);
     } else {
-      if (score <= 2) {
+      if (score/quiz.length <= 0.4) {
         navigation.navigate({
           routeName: 'StoryQuizFinishScreen',
-          params: { ResultScore: score, Text: 'You should try again' },
+          params: { ResultScore: score/quiz.length, Text: 'You should try again' },
         });
-      } else if (score > 2 && score <= 4) {
+      } else if (score/quiz.length > 0.4 && score/quiz.length <= 0.8) {
         navigation.navigate({
           routeName: 'StoryQuizFinishScreen',
-          params: { ResultScore: score, Text: 'You can do better next time' },
+          params: { ResultScore: score/quiz.length, Text: 'You can do better next time' },
         });
-      } else if (score >= 5) {
+      } else if (score/quiz.length >= 1) {
         navigation.navigate({
           routeName: 'StoryQuizFinishScreen',
-          params: { ResultScore: score, Text: 'If you\'re my kid, I would be very happy' },
+          params: { ResultScore: score/quiz.length, Text: 'If you\'re my kid, I would be very happy' },
         });
       }
     }
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     backgroundColor: 'green',
     alignItems: 'center',
-    marginBottom: Dimensions.get('screen').height * 0.1,
+    marginBottom: Dimensions.get('screen').height * 0.07,
   },
   container: {
     flex: 1,
