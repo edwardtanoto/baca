@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import PlacementTestScreen from './../screen/PlacementTestScreen';
 import Kindergarten from './../screen/Kindergarten'
 import QuizFinishScreen from './../screen/QuizFinishScreen';
+import ModalPage from '../components/ModalPage'
 
 const SplashNavigator = createStackNavigator({
   SplashScreen: { screen: Splash, navigationOptions: { headerShown: false } },
@@ -21,6 +22,10 @@ const SplashNavigator = createStackNavigator({
     screen: QuizFinishScreen,
     navigationOptions: { headerShown: false },
   },
+  ModalPage:{
+    screen:ModalPage,
+    navigationOptions: { headerShown: false },
+  }
 });
 
 export default createAppContainer(SplashNavigator);

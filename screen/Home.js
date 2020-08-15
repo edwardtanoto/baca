@@ -47,7 +47,7 @@ const Home = ({ navigation }) => {
         <Text style={styles.spacer}>⡇</Text>
         <Step text='Elementary' filled = 'Y'/>
         <Text style={styles.spacer}>⡇</Text>
-        <Step text='Junior High' filled = 'Y'/>
+        <Step text='Junior High' filled = 'N'/>
         <Text style={styles.spacer}>⡇</Text>
         <Step text='Senior High' filled = 'N'/>
         <Text style={styles.spacer}>⡇</Text>

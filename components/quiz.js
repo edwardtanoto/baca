@@ -9,9 +9,12 @@ import {
   ScrollView,
   TouchableOpacity,
   ImageBackground,
+  Image,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import MCOptions from './MCOptions';
+import PlacementTestScreen from '../screen/PlacementTestScreen';
+
 const { width, height } = Dimensions.get('window');
 const quiz = [
   {
@@ -28,6 +31,42 @@ const quiz = [
     correctoption: 'v',
     options: ['v', 't', 'w'],
     question: 'The 22nd alphabet is',
+  },
+  {
+    question: 'One of the five senses in human is',
+    options: ['Smile', 'Fight', 'Sight'],
+    correctoption: 'Sight',
+  },
+  {
+    question: '67.42 - 28.58',
+    options: [38.57, 38.84, 38.94],
+    correctoption: 38.84,
+  },
+  {
+    question: 'The capital letter of ‘g’ is',
+    options: ['B', 'E', 'G'],
+    correctoption: 'G',
+  },
+  {
+    question: 'Doctor’s job is to',
+    options: ['Kill a patient', 'Eat a patient', 'Cure patient'],
+    correctoption: 'Cure patient',
+  },
+  {
+    question: 'The capital city of Indonesia is',
+    options: ['Jakarta', 'Maluku', 'Medan'],
+    correctoption: 'Jakarta',
+  },
+  {
+    question: 'How many legs does a cat have?',
+    options: [4, 5, 6],
+    correctoption: 4,
+  },
+  {
+    question:
+      'Initially, I have five apples. My friend stole one piece, and my brother ate one. How many apples do I have now?',
+    options: [1, 2, 3],
+    correctoption: 3,
   },
 ];
 const Quiz = ({ navigation, qno }) => {
@@ -51,28 +90,25 @@ const Quiz = ({ navigation, qno }) => {
       setOptions(quiz[tempqno].options);
       setCorrectOption(quiz[tempqno].correctoption);
     } else {
-      if (score == 1 || score == 0) {
+      if (score <=3) {
         navigation.navigate({
           routeName: 'QuizFinishScreen',
-          params: { ResultScore: score, Text: 'TK' },
+          params: { ResultScore: score, Text: 'Kindergarten' },
         });
-      } else if (score > 1 && score <= 2) {
+      } else if (score > 3 && score <= 9) {
         navigation.navigate({
           routeName: 'QuizFinishScreen',
-          params: { ResultScore: score, Text: 'SD' },
+          params: { ResultScore: score, Text: 'Elementary' },
         });
-      } else if (score == 3) {
+      } else if (score == 10) {
         navigation.navigate({
           routeName: 'QuizFinishScreen',
-          params: { ResultScore: score, Text: 'SMP' },
+          params: { ResultScore: score, Text: 'Junior High' },
         });
       }
     }
   };
 
-  useEffect(() => {
-    console.log(answer);
-  }, [answer]);
 
   useEffect(() => {
     answer.map((ans, index) => {
@@ -114,6 +150,7 @@ const Quiz = ({ navigation, qno }) => {
             />
           </View>
         </View>
+        <Image source={require('../assets/LOGO.png')} style = {styles.logo}/>
       </ImageBackground>
     </View>
   );
@@ -125,6 +162,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     backgroundColor: 'green',
     alignItems: 'center',
+    marginBottom: Dimensions.get('screen').height * 0.1
   },
   container: {
     flex: 1,
@@ -147,6 +185,12 @@ const styles = StyleSheet.create({
     resizeMode: 'stretch',
     width: Dimensions.get('screen').width,
   },
+  logo:{
+    marginLeft:Dimensions.get('screen').width * 0.4,
+    width:Dimensions.get('screen').width * 0.2,
+    height:Dimensions.get('screen').height * 0.15,
+    backgroundColor:'white'
+  }
 });
 
 export default Quiz;
