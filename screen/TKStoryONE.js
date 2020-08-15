@@ -13,16 +13,15 @@ import {
 
 import { SCRIPT as script } from '../data/Script';
 
-export const TKStoryONE = () => {
+export const TKStoryONE = ({ navigation }) => {
   const [index, setIndex] = useState(0);
-  console.log(script[index].characterImage)
+  console.log(script[index].characterImage);
   const nextStory = () => {
     if (index < script.length - 1) {
       let tempIndex = index + 1;
       setIndex(tempIndex);
     } else {
-        // PINDAH KE QUIZ
-        setIndex(0)
+      navigation.navigate('PlacementTestScreen');
     }
   };
   // console.log(script[index].characterName);
@@ -33,25 +32,28 @@ export const TKStoryONE = () => {
         flex: 1,
         justifyContent: 'space-evenly',
       }}
-     
     >
       <ImageBackground
         source={require('../assets/classroom.jpg')}
         style={styles.image}
       >
         <View>
-         { script[index].characterName == "Ms. Teacher" ?  
-         <Image
-            source={require('../assets/ibuguru.png')}
-            style={styles.character} 
-          ></Image> : <Text></Text>
-          }
-           { script[index].characterName == "Budi" ?  
-         <Image
-            source={require('../assets/budiTK.png')}
-            style={styles.character} 
-          ></Image> :  <Text></Text>
-          }
+          {script[index].characterName == 'Ms. Teacher' ? (
+            <Image
+              source={require('../assets/ibuguru.png')}
+              style={styles.character}
+            ></Image>
+          ) : (
+            <Text></Text>
+          )}
+          {script[index].characterName == 'Budi' ? (
+            <Image
+              source={require('../assets/budiTK.png')}
+              style={styles.character}
+            ></Image>
+          ) : (
+            <Text></Text>
+          )}
         </View>
         <TouchableOpacity style={styles.dialog} onPress={nextStory}>
           <View>
@@ -83,7 +85,7 @@ const styles = StyleSheet.create({
   character: {
     height: '80%',
     width: '50%',
-    marginLeft : 100
+    marginLeft: 100,
   },
   Tagline: {
     color: 'black',
