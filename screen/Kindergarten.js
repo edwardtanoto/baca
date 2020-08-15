@@ -80,7 +80,7 @@ const Kindergarten = ({ navigation }) => {
           </TouchableOpacity>
         </View>
         <View>
-          <TouchableOpacity style={styles.story}>
+          <TouchableOpacity style={styles.story} onPress={()=>{navigation.navigate('TKStoryTWO')}}>
             <View style={styles.circle}>
               <Icon name='md-paper-plane' size={18} />
             </View>
@@ -95,7 +95,7 @@ const Kindergarten = ({ navigation }) => {
           </TouchableOpacity>
         </View>
         <View>
-          <TouchableOpacity style={styles.story}>
+          <TouchableOpacity style={styles.story} onPress={()=>{navigation.navigate('TKQUIZTWO')}}>
             <View style={styles.circle}>
               <Icon name='md-checkbox-outline' size={18} />
             </View>
@@ -126,7 +126,7 @@ const Kindergarten = ({ navigation }) => {
                 >
                   <View style={styles.centeredView}>
                     <View style={styles.modalView}>
-                      <Image source={require('../assets/LOGO.png')} style={{width:100,height:100}}/>
+                      <Image source={require('../assets/qr-code_tk.png')} style={{width:Dimensions.get('screen').width *0.5,height:Dimensions.get('screen').width *0.5}}/>
 
                       <TouchableHighlight
                         style={{ ...styles.openButton, backgroundColor: "#2196F3" }}

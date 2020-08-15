@@ -13,14 +13,14 @@ import {
 
 import { SCRIPTTKTWO as script } from '../data/ScriptTKTwo';
 
-export const TKStoryTwo = () => {
+export const TKStoryTWO = ({navigation}) => {
   const [index, setIndex] = useState(0);
   const nextStory = () => {
     if (index < script.length - 1) {
       let tempIndex = index + 1;
       setIndex(tempIndex);
     } else {
-        setIndex(0)
+      navigation.navigate('TKQUIZTWO');
     }
   };
   // console.log(script[index].characterName);
