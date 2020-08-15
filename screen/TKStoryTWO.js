@@ -33,14 +33,26 @@ export const TKStoryTWO = ({navigation}) => {
       }}
     >
       <ImageBackground
-        source={require('../assets/classroom.jpg')}
+        source={require('../assets/jalanan.jpg')}
         style={styles.image}
       >
         <View>
-          <Image
-            source={require('../assets/ibu.png')}
-            style={styles.character}
-          ></Image>
+          {script[index].characterName == 'Mom' ? (
+            <Image
+              source={require('../assets/ibu.png')}
+              style={styles.character}
+            ></Image>
+          ) : (
+            <Text></Text>
+          )}
+          {script[index].characterName == 'Budi' ? (
+            <Image
+              source={require('../assets/budiTK.png')}
+              style={styles.character}
+            ></Image>
+          ) : (
+            <Text></Text>
+          )}
         </View>
         <TouchableOpacity style={styles.dialog} onPress={nextStory}>
           <View>

@@ -16,7 +16,7 @@ const QuizFinishScreen = ({ route, navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.circle}>
-        <Text style = {styles.title}>Congratulations!</Text>
+  <Text style = {styles.title}>Congratulations! You got {score*10}</Text>
         <Icon name = "md-school" size = {Dimensions.get('screen').height > 500 ? 50: 30}/>
         <Text style={styles.score}>You are eligible to start from level : {text}</Text>
       </View>
@@ -40,7 +40,8 @@ const styles = StyleSheet.create({
   },
   title:{
     fontSize:28,
-    fontWeight:'bold'
+    fontWeight:'bold',
+    textAlign:'center'
   },
   circle: {
     justifyContent: 'center',

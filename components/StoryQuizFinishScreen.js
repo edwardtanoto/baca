@@ -19,7 +19,7 @@ const QuizFinishScreen = ({ route, navigation }) => {
     <View style={styles.container}>
         <ImageBackground source = {require('../assets/confetti.jpg')} style = {{width:'100%',alignItems:'center',flex:1}}>
           <View style={styles.square}>
-            <Text style = {styles.title}>Well Done!</Text>
+            <Text style = {styles.title}>Well Done! You got {Math.floor(score*100)}</Text>
             <View style ={{flexDirection:'row'}}>
               <Icon name = "md-trophy" size = {Dimensions.get('screen').height > 500 ? 50: 30} style={{color:'gold',marginHorizontal:10}}/>
               <Icon name = "md-trophy" size = {Dimensions.get('screen').height > 500 ? 50: 30} style={{color:'gold',marginHorizontal:10}}/>
@@ -37,7 +37,7 @@ const QuizFinishScreen = ({ route, navigation }) => {
     </View>:
     <View style={styles.container2}>
         <View style={styles.fail}>
-          <Text style = {styles.title}>Oh no!</Text>
+          <Text style = {styles.title}>Oh no! You got {Math.floor(score*100)}</Text>
           <View style ={{flexDirection:'row'}}>
             <Icon name = "md-sad" size = {Dimensions.get('screen').height > 500 ? 50: 30} style={{color:'black',marginHorizontal:10}}/>
           </View>
@@ -64,6 +64,7 @@ const styles = StyleSheet.create({
   title:{
     fontSize:28,
     fontWeight:'bold',
+    textAlign:'center'
   },
   square: {
     justifyContent: 'center',
