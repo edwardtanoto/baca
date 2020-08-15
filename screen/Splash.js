@@ -3,11 +3,11 @@ import { ImageBackground } from 'react-native';
 const Splash = ({ navigation }) => {
   setTimeout(() => {
     navigation.navigate('PlacementTestScreen');
-  }, 2000);
+  }, 3000);
 
   return (
     <ImageBackground
-      source={require('../assets/schoolhall.jpg')}
+      source={require('../assets/frontpage.jpg')}
       style={{
         height: '100%',
         width: '100%',
