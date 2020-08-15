@@ -13,22 +13,29 @@ import {
 
 import { SCRIPT as script } from '../data/Script';
 
-export const Story = () => {
+export const TKStoryONE = () => {
   const [index, setIndex] = useState(0);
+  console.log(script[index].characterImage)
   const nextStory = () => {
     if (index < script.length - 1) {
       let tempIndex = index + 1;
       setIndex(tempIndex);
+    } else {
+        // PINDAH KE QUIZ
+        setIndex(0)
     }
   };
   // console.log(script[index].characterName);
   return (
-    <View
+    <TouchableOpacity
       style={{
         backgroundColor: 'white',
         flex: 1,
         justifyContent: 'space-evenly',
       }}
+      onPress={nextStory}
+      activeOpacity={0.1}
+     
     >
       <ImageBackground
         source={require('../assets/classroom.jpg')}
@@ -36,7 +43,7 @@ export const Story = () => {
       >
         <View>
           <Image
-            source={require('../assets/ibu.png')}
+            source={script[index].characterImage}
             style={styles.character}
           ></Image>
         </View>
@@ -51,7 +58,7 @@ export const Story = () => {
           </View> */}
         </TouchableOpacity>
       </ImageBackground>
-    </View>
+    </TouchableOpacity>
   );
 };
 

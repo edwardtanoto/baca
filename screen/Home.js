@@ -11,7 +11,7 @@ const Splash = ({ navigation }) => {
       }}
     >
       <Text>Home</Text>
-      <Button title='story' onPress={navigation.navigate('Story')} />
+      <Button title='story' onPress={navigation.navigate.bind(this, 'TKStoryONE')} />
     </View>
   );
 };

@@ -4,7 +4,7 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { useEffect } from 'react';
 import PlacementTestScreen from './../screen/PlacementTestScreen';
-import { Story } from '../screen/Story';
+import { TKStoryONE } from '../screen/TKStoryONE';
 
 const SplashNavigator = createStackNavigator({
   // SplashScreen: { screen: Splash, navigationOptions: { headerShown: false } },
@@ -13,7 +13,7 @@ const SplashNavigator = createStackNavigator({
   //   navigationOptions: { headerShown: false },
   // },
   Home: { screen: Home, navigationOptions: { headerShown: false } },
-  Story : {screen : Story, navigationOptions: { headerShown: false } },
+  TKStoryONE : {screen : TKStoryONE, navigationOptions: { headerShown: false } },
   
 });
 
